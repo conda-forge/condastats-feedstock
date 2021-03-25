@@ -1,5 +1,5 @@
 {% set name = "condastats" %}
-{% set version = "0.1.3" %}
+{% set version = "0.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8342576216c06f1ba8e84c6aa1b45b390f3e810a745fcdb562df0380402367b6
+  sha256: 2f65284adb7583e4215e6775931cc58c287c8ec147e411a6b1251f25af6f9744
 
 build:
   noarch: python
