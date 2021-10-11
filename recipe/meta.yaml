@@ -1,17 +1,18 @@
 {% set name = "condastats" %}
 {% set version = "0.1.5" %}
 
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/condastats-{{ version }}.tar.gz
   sha256: 2f65284adb7583e4215e6775931cc58c287c8ec147e411a6b1251f25af6f9744
 
 build:
+  number: 1
   noarch: python
-  number: 0
   entry_points:
     - condastats=condastats.cli:main
   script: {{ PYTHON }} -m pip install . -vv
@@ -20,26 +21,30 @@ requirements:
   host:
     - pip
     - python >=3.6
-
   run:
     - dask
     - fastparquet
+    - fsspec >=2021.4.0
+    - numpy >=1.16.5
     - python >=3.6
     - python-snappy
-    - s3fs
+    - s3fs >=2021.4.0
 
 test:
   imports:
     - condastats
   commands:
+    - pip check
     - condastats --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/sophiamyang/condastats
+  summary: Conda package stats CLI
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: Conda package stats CLI
   doc_url: condastats.readthedocs.io
 
 extra:
