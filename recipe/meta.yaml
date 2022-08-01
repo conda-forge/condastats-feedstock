@@ -1,5 +1,5 @@
 {% set name = "condastats" %}
-{% set version = "0.1.5" %}
+{% set version = "0.2.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/condastats-{{ version }}.tar.gz
-  sha256: 2f65284adb7583e4215e6775931cc58c287c8ec147e411a6b1251f25af6f9744
+  sha256: 013dfb759b78fc7088411cdf55e015cda25888efee0e21b57c946a7c9d4afb36
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - condastats=condastats.cli:main
@@ -23,7 +23,7 @@ requirements:
     - python >=3.6
   run:
     - dask
-    - fastparquet
+    - pyarrow
     - fsspec >=2021.4.0
     - numpy >=1.16.5
     - python >=3.6
