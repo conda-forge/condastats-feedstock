@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/condastats-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/condastats-{{ version }}.tar.gz
   sha256: 013dfb759b78fc7088411cdf55e015cda25888efee0e21b57c946a7c9d4afb36
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - condastats=condastats.cli:main
@@ -20,13 +20,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - dask
     - pyarrow
     - fsspec >=2021.4.0
     - numpy >=1.16.5
-    - python >=3.6
+    - python >={{ python_min }}
     - python-snappy
     - s3fs >=2021.4.0
 
@@ -38,6 +38,7 @@ test:
     - condastats --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/sophiamyang/condastats
