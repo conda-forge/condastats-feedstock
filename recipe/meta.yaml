@@ -1,5 +1,5 @@
 {% set name = "condastats" %}
-{% set version = "0.2.1" %}
+{% set version = "0.4.2" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/condastats-{{ version }}.tar.gz
-  sha256: 013dfb759b78fc7088411cdf55e015cda25888efee0e21b57c946a7c9d4afb36
+  sha256: c0ffc117851000d7e4dae9ad611d4cc8a1d3f6e4c0479aa66340e014209c0b1f
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - condastats=condastats.cli:main
