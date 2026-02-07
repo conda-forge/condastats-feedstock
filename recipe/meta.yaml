@@ -21,14 +21,16 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
+    - setuptools >=61.0
+    - setuptools-scm >=6.2
   run:
-    - dask
-    - pyarrow
-    - fsspec >=2021.4.0
-    - numpy >=1.16.5
+    - dask >=2024.5.2
+    - numpy >=1.20.0
+    - pandas >=2.0.0
+    - pyarrow >=10.0.0
     - python >={{ python_min }}
-    - python-snappy
-    - s3fs >=2021.4.0
+    - python-snappy >=0.6.1
+    - s3fs >=2023.1.0
 
 test:
   imports:
@@ -41,12 +43,12 @@ test:
     - python {{ python_min }}
 
 about:
-  home: https://github.com/sophiamyang/condastats
+  home: https://github.com/conda-incubator/condastats
   summary: Conda package stats CLI
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  doc_url: condastats.readthedocs.io
+  doc_url: https://condastats.readthedocs.io
 
 extra:
   recipe-maintainers:
